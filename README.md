@@ -1,4 +1,4 @@
-My Article code example on "Practical Guide to testing React Applications with Jest"
+Sample basic for understanding react components testing using jest and enzyme
 
 Clone this repo
 
