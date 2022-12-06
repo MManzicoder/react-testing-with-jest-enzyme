@@ -6,6 +6,7 @@ class App extends Component {
     isLoading: true,
     users: [],
     error: null,
+    counter: 0,
   };
 
   fetchUsers() {
@@ -15,9 +16,10 @@ class App extends Component {
         this.setState({
           users: data,
           isLoading: false,
+          counter: data.length,
         })
       )
-      .catch((error) => this.setState({ error, isLoading: false }));
+      .catch((error) => this.setState({ error, isLoading: false, counter: 0 }));
   }
 
   componentDidMount() {
@@ -37,6 +39,14 @@ class App extends Component {
         ) : (
           <h3>Fetching Users...</h3>
         )}
+        <button
+          id="counter"
+          onClick={() =>
+            this.setState({ ...this.state, counter: this.state.counter + 1 })
+          }
+        >
+          Increment
+        </button>
       </React.Fragment>
     );
   }
